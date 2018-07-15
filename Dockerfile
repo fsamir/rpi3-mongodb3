@@ -21,8 +21,12 @@ RUN mkdir -p \
     /data/configdb \
     /var/log/mongodb
 
-COPY ./docker-entrypoint.sh /
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
+
+RUN rm -v /etc/mongodb.conf || true \
+    && rm -v /etc/mongodb.yml || true
+    
+ADD mongodb.yml /etc/
+ADD mongodb-start.sh /usr/bin/
 
 # Define mountable directories
 VOLUME /data/db /data/configdb
@@ -36,6 +40,6 @@ WORKDIR /data
 EXPOSE 27017
 EXPOSE 28017
 
-#ENTRYPOINT ["/sbin/tini", "--"]
-ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["mongod"] 
+
+# Run mongodb
+CMD /usr/bin/mongodb-start.sh

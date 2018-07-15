@@ -1,3 +1,13 @@
+# Modifications in this fork
+
+ - Add /etc/mongod.yml
+ - Replace docker-entrypoint.sh with mongodb-start.sh, with the abiity to remove mongod.lock 
+ and repair the DB on restarts. 
+ Similar to: https://github.com/cretzel/rpi-docker/tree/master/rpi-mongodb
+ 
+ This is available in Dockerhub as `inventmarine/rpi3-mongodb3`
+ 
+ 
 # MongoDB 3.0.14 for Raspberry Pi 3 (ARMv7l) - Docker 17.11.0-ce+
 
 This docker image uses pre-compiled 32bit ARM binaries from Andy Felong and the latest Raspbian Stretch build from Resin (https://hub.docker.com/r/resin/rpi-raspbian/)
