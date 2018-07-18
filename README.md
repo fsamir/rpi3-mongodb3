@@ -1,7 +1,7 @@
 # Modifications in this fork
 
  - Add /etc/mongod.yml
- - Replace docker-entrypoint.sh with mongodb-start.sh, with the abiity to remove mongod.lock 
+ - Replace docker-entrypoint.sh with mongodb-start.sh, with the ability to remove mongod.lock 
  and repair the DB on restarts. 
  Similar to: https://github.com/cretzel/rpi-docker/tree/master/rpi-mongodb
  
@@ -14,9 +14,9 @@ This docker image uses pre-compiled 32bit ARM binaries from Andy Felong and the 
 
 *Where to find this:*
 
-Github: https://github.com/andresvidal/rpi3-mongodb3
+Github: https://github.com/fsamir/rpi3-mongodb3
 
-Docker Hub: https://hub.docker.com/r/andresvidal/rpi3-mongodb3/
+Docker Hub: https://hub.docker.com/r/inventmarine/rpi3-mongodb3/
 
 ## MongoDB (32bit) Binary Notes
 
@@ -39,7 +39,7 @@ After a few source tweaks and use of various compiler flags, I have manged to co
 ## Build
 
 ```
-docker build -t andresvidal/rpi3-mongodb3 .
+docker build -t inventmarine/rpi3-mongodb3:latest .
 ```
 
 ## Run

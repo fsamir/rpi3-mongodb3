@@ -2,7 +2,8 @@
 
 FROM resin/rpi-raspbian:stretch
 
-LABEL created_by=https://github.com/andresvidal/rpi3-mongodb3
+LABEL created_by=https://github.com/fsamir/rpi3-mongodb3
+LABEL original_by=https://github.com/andresvidal/rpi3-mongodb3
 LABEL binaries=https://andyfelong.com/2017/08/mongodb-3-0-14-for-raspbian-stretch
 LABEL mongod_version=3.0.14
 
@@ -22,11 +23,10 @@ RUN mkdir -p \
     /var/log/mongodb
 
 
-RUN rm -v /etc/mongodb.conf || true \
-    && rm -v /etc/mongodb.yml || true
-    
-ADD mongodb.yml /etc/
+ADD mongod.conf /etc/
+
 ADD mongodb-start.sh /usr/bin/
+RUN chmod +x /usr/bin/mongodb-start.sh
 
 # Define mountable directories
 VOLUME /data/db /data/configdb
